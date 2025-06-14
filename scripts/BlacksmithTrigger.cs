@@ -24,23 +24,4 @@ public class BlacksmithTrigger : MonoBehaviour
             playerInventory = null;
         }
     }
-
-    void Update()
-    {
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
-        {
-            if (playerInventory != null)
-            {
-                if (playerInventory.collectedItems.Count < 5)
-                {
-                    // Show your error message via TMP UI here
-                    Debug.Log("You need all 5 key parts to use the blacksmith.");
-                }
-                else
-                {
-                    playerInventory.CraftKey();
-                }
-            }
-        }
-    }
 }

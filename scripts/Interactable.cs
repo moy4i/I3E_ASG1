@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
     public TextMeshProUGUI doorPrompt;
     public TextMeshProUGUI blacksmithPrompt;
     public TextMeshProUGUI doorLockedPrompt;
+    public TextMeshProUGUI blacksmithErrorPrompt;
 
     private Doorbehavior currentDoor;
     private GameObject currentBlacksmith;
@@ -22,13 +23,18 @@ public class Interactable : MonoBehaviour
 
         if (doorPrompt != null) doorPrompt.enabled = false;
         if (blacksmithPrompt != null) blacksmithPrompt.enabled = false;
-        if (doorLockedPrompt != null)
-        {
-            doorLockedPrompt.enabled = false;
 
-            // Ensure CanvasGroup is present
-            if (doorLockedPrompt.GetComponent<CanvasGroup>() == null)
-                doorLockedPrompt.gameObject.AddComponent<CanvasGroup>();
+        SetupCanvasGroup(doorLockedPrompt);
+        SetupCanvasGroup(blacksmithErrorPrompt);
+    }
+
+    void SetupCanvasGroup(TextMeshProUGUI prompt)
+    {
+        if (prompt != null)
+        {
+            prompt.enabled = false;
+            if (prompt.GetComponent<CanvasGroup>() == null)
+                prompt.gameObject.AddComponent<CanvasGroup>();
         }
     }
 
@@ -63,7 +69,7 @@ public class Interactable : MonoBehaviour
                             if (doorLockedPrompt != null)
                             {
                                 StopAllCoroutines();
-                                StartCoroutine(FadeMessage(doorLockedPrompt.text)); // uses TMP message from Inspector
+                                StartCoroutine(FadeMessage(doorLockedPrompt.text, doorLockedPrompt));
                             }
                         }
                     }
@@ -86,7 +92,20 @@ public class Interactable : MonoBehaviour
                 {
                     Inventory inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
                     if (inventory != null)
-                        inventory.CraftKey();
+                    {
+                        if (inventory.collectedItems.Count < 5)
+                        {
+                            if (blacksmithErrorPrompt != null)
+                            {
+                                StopAllCoroutines();
+                                StartCoroutine(FadeMessage(blacksmithErrorPrompt.text, blacksmithErrorPrompt));
+                            }
+                        }
+                        else
+                        {
+                            inventory.CraftKey();
+                        }
+                    }
                 }
 
                 isLookingAtSomething = true;
@@ -104,12 +123,14 @@ public class Interactable : MonoBehaviour
         currentBlacksmith = null;
     }
 
-    IEnumerator FadeMessage(string msg)
+    IEnumerator FadeMessage(string msg, TextMeshProUGUI prompt)
     {
-        doorLockedPrompt.text = msg;
-        doorLockedPrompt.enabled = true;
+        if (prompt == null) yield break;
 
-        CanvasGroup group = doorLockedPrompt.GetComponent<CanvasGroup>();
+        prompt.text = msg;
+        prompt.enabled = true;
+
+        CanvasGroup group = prompt.GetComponent<CanvasGroup>();
         group.alpha = 1f;
 
         yield return new WaitForSeconds(2f);
@@ -120,6 +141,6 @@ public class Interactable : MonoBehaviour
             yield return null;
         }
 
-        doorLockedPrompt.enabled = false;
+        prompt.enabled = false;
     }
 }
