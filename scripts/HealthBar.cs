@@ -15,14 +15,5 @@ public class HealthBar : MonoBehaviour
         healthSlider.maxValue = amount;
         SetSlider(amount);
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
