@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Stores and tracks collected items (e.g., key parts), checks if crafting conditions are met.
+*/
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

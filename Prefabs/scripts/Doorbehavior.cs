@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Handles locked doors. Requires Master Key from inventory and opens on interaction.
+*/
 using UnityEngine;
 
 public class Doorbehavior : MonoBehaviour

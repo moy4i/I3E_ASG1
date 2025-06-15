@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Automatically opens big door when player collects 3 items.
+*/
 using UnityEngine;
 
 public class AutoDoorOpener1 : MonoBehaviour

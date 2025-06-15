@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Displays popup text when picking up an item or crafting the Master Key
+*/
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;

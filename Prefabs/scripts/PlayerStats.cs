@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Controls player health, damage taken, death detection, and triggers for respawn or game over.
+*/
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour

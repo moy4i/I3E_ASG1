@@ -1,3 +1,9 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Script for items on the ground. Allows item pickup, score increment, and UI update.
+*/
+
 using UnityEngine;
 
 public class Collectible : MonoBehaviour

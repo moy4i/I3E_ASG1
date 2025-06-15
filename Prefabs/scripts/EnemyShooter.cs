@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Controls an enemy that shoots bullets towards the player, dealing damage on contact.
+*/
 using UnityEngine;
 
 public class EnemyShooter : MonoBehaviour

@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Controls bullet behavior, such as movement and collision with enemies or environment.
+*/
 using UnityEngine;
 
 public class Bullet : MonoBehaviour

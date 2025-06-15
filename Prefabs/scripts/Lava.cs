@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Hazard script that instantly kills the player while standing in lava.
+*/
 using UnityEngine;
 
 public class Lava : MonoBehaviour

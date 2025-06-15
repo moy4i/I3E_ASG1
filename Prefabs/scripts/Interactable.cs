@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Base class for objects that can be interacted with via Raycast (doors, items, etc)
+*/
 using UnityEngine;
 using TMPro;
 using System.Collections;

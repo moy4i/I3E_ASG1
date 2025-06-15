@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: 	Updates and displays the player’s health visually in the UI
+*/
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -1,3 +1,8 @@
+/*
+* Author: Justin Tan
+* Date: 13-6-2025
+* Description: Triggers the end screen when player reaches the final mesh/area after unlocking the final door.
+*/
 using UnityEngine;
 
 public class EndTrigger : MonoBehaviour
